@@ -1,6 +1,6 @@
 # NestJS Application for Retrieving Arbitrum Airdrop from Compromised Ethereum Wallets
 
-This NestJS application provides a solution for retrieving Arbitrum airdrops from compromised Ethereum wallets. It utilizes the Ethereum blockchain and Web3 library to interact with smart contracts and execute transactions.
+This NestJS application provides a solution for retrieving Arbitrum airdrops from compromised Ethereum wallets. It will attempt and deposit gas tokens, perform the claim and the withdraw all in the same block, so that sweeper bots don't get a chance to steal gas tokens or the claimed $ARB as they won't be aware of it yet.
 
 ## Requirements
 
@@ -21,15 +21,15 @@ This NestJS application provides a solution for retrieving Arbitrum airdrops fro
 
 ## Using the arbitrumService
 
-The `ethereum.service.ts` file provides methods for interacting with the Ethereum blockchain and executing transactions. These methods include:
+The `arbitrum.service.ts` file provides methods for interacting with the Arbitrum blockchain and executing transactions. These methods include:
 
 - `getWeb3Instance()`: Returns the current Web3 instance
-- `getCurrentBlockNumber()`: Returns the current block number on the Ethereum blockchain
+- `getCurrentBlockNumber()`: Returns the current block number on the Ethereum blockchain via a multicall contract on Arbitrum
 - `executeTransaction()`: Executes a transaction on the Ethereum blockchain using a private key, to address, value, and gas price
 - `getERC20TokenContract()`: Returns a contract instance for a given ERC20 token address
 - `transferERC20Token()`: Transfers ERC20 tokens from one address to another using a private key, token address, to address, value, and gas price
 - `executeContractMethod()`: Executes a method on a smart contract using a private key, contract address, ABI, method name, gas price, and optional method arguments
-- `getGasPrice()`: Returns the current gas price on the Ethereum blockchain
+- `getGasPrice()`: Returns the current gas price on the Arbitrum blockchain
 
 ## Contributing
 
